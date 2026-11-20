@@ -81,12 +81,100 @@ form { width:37rem; max-width:100%; }
 @media (min-width:640px){ .bar input{ font-size:1.15rem; } }
 .bar input::placeholder { color:var(--body-muted); opacity:1; }
 
+/* ---------- Below-the-fold sections ---------- */
+.sec { position:relative; padding:5rem 1.25rem; background:var(--hero-base); }
+@media (min-width:640px){ .sec{ padding:8rem 2.5rem; } }
+.sec + .sec { border-top:1px solid rgba(255,255,255,0.06); }
+.wrap { max-width:72rem; margin:0 auto; }
+.eyebrow { font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--body-muted); }
+@media (min-width:640px){ .eyebrow{ font-size:0.8rem; } }
+h2 { margin-top:1rem; max-width:44rem; font-size:1.9rem; font-weight:500; line-height:1.12; letter-spacing:-0.02em; color:var(--heading); text-wrap:balance; }
+@media (min-width:640px){ h2{ font-size:3rem; } }
+.lede { margin-top:1.25rem; max-width:38rem; font-size:1rem; line-height:1.55; color:var(--body-muted); }
+@media (min-width:640px){ .lede{ font-size:1.1rem; } }
+.glass { border:1px solid var(--glass-border); background:var(--glass-fill); border-radius:1.5rem; }
+
+.sr { opacity:0; transform:translateY(1.5rem); transition:opacity 800ms var(--ease-entrance), transform 800ms var(--ease-entrance); transition-delay:var(--d,0ms); }
+.sr.in { opacity:1; transform:none; }
+
+.cards { margin-top:2.5rem; display:grid; gap:1rem; grid-template-columns:1fr; }
+@media (min-width:640px){ .cards{ grid-template-columns:1fr 1fr; margin-top:3.5rem; } }
+.card { padding:1.5rem; display:flex; flex-direction:column; gap:0.9rem; min-width:0; transition:background var(--duration-fast) var(--ease-entrance), border-color var(--duration-fast) var(--ease-entrance); }
+@media (min-width:640px){ .card{ padding:2rem; } }
+.card:hover { background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.28); }
+.card .ico { width:2.75rem; height:2.75rem; border-radius:9999px; display:grid; place-items:center; background:linear-gradient(135deg,#22d3ee,#6366f1 55%,#d946ef); }
+.card .ico svg { width:1.35rem; height:1.35rem; stroke:#04050c; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.card h3 { font-size:1.35rem; font-weight:500; letter-spacing:-0.01em; color:var(--heading); }
+.card p { font-size:0.98rem; line-height:1.55; color:var(--body-muted); }
+.tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:auto; padding-top:0.5rem; }
+.tags span { font-size:0.75rem; color:var(--body-muted); border:1px solid var(--glass-border); border-radius:9999px; padding:0.25rem 0.7rem; }
+
+.loop { margin-top:2.5rem; display:grid; gap:2.5rem; align-items:center; grid-template-columns:1fr; }
+@media (min-width:1024px){ .loop{ grid-template-columns:1fr 1fr; gap:4rem; margin-top:3.5rem; } }
+.loop svg { width:100%; max-width:30rem; margin:0 auto; display:block; overflow:visible; }
+.loop .ring { fill:none; stroke:rgba(255,255,255,0.18); stroke-width:1.5; stroke-dasharray:3 7; animation:spin 40s linear infinite; transform-origin:200px 200px; }
+.loop .node { fill:rgba(255,255,255,0.08); stroke:rgba(255,255,255,0.25); }
+.loop text { fill:#eef0f6; font-family:"Onest",sans-serif; font-size:15px; font-weight:500; text-anchor:middle; dominant-baseline:middle; }
+.loop .core { font-size:13px; fill:#b9becf; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.steps { list-style:none; padding:0; display:flex; flex-direction:column; gap:1.25rem; }
+.steps li { display:flex; gap:1rem; align-items:flex-start; }
+.steps b { flex:none; width:2.25rem; height:2.25rem; border-radius:9999px; display:grid; place-items:center; font-weight:500; font-size:0.9rem; color:var(--action-inverse-fg); background:var(--action-inverse); }
+.steps h3 { font-size:1.1rem; font-weight:500; color:var(--heading); }
+.steps p { margin-top:0.25rem; font-size:0.95rem; line-height:1.5; color:var(--body-muted); }
+
+.metrics { margin-top:2.5rem; display:grid; gap:1rem; grid-template-columns:1fr; }
+@media (min-width:640px){ .metrics{ grid-template-columns:1fr 1fr; margin-top:3.5rem; } }
+@media (min-width:1024px){ .metrics{ grid-template-columns:repeat(4,1fr); } }
+.metric { padding:1.5rem; min-width:0; }
+.metric h3 { font-size:1.1rem; font-weight:500; color:var(--heading); }
+.metric p { margin-top:0.6rem; font-size:0.92rem; line-height:1.5; color:var(--body-muted); }
+.metric .k { display:block; margin-bottom:1.5rem; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--body-muted); }
+
+.proc { margin-top:2.5rem; display:grid; gap:1rem; grid-template-columns:1fr; }
+@media (min-width:640px){ .proc{ grid-template-columns:1fr 1fr; margin-top:3.5rem; } }
+@media (min-width:1024px){ .proc{ grid-template-columns:repeat(4,1fr); } }
+.proc .card { gap:0.6rem; }
+.proc .wk { font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--body-muted); }
+
+.faq { margin-top:2.5rem; max-width:48rem; display:flex; flex-direction:column; gap:0.75rem; }
+.faq details { padding:0 1.25rem; border-radius:1.25rem; }
+.faq summary { cursor:pointer; list-style:none; padding:1.1rem 0; font-size:1.05rem; font-weight:500; color:var(--heading); display:flex; justify-content:space-between; gap:1rem; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:"+"; color:var(--body-muted); font-size:1.4rem; line-height:1; transition:transform var(--duration-fast) var(--ease-entrance); }
+.faq details[open] summary::after { transform:rotate(45deg); }
+.faq summary:focus-visible { outline:none; box-shadow:0 0 0 2px rgba(255,255,255,.5); border-radius:0.5rem; }
+.faq details p { padding-bottom:1.25rem; font-size:0.98rem; line-height:1.55; color:var(--body-muted); }
+
+.contact { position:relative; overflow:hidden; text-align:center; background:radial-gradient(80% 90% at 50% 0%, rgba(99,102,241,0.28), rgba(217,70,239,0.12) 45%, transparent 75%), var(--hero-base); }
+.contact .wrap { display:flex; flex-direction:column; align-items:center; }
+.contact h2, .contact .lede { margin-left:auto; margin-right:auto; }
+.cform { margin-top:2.5rem; width:100%; max-width:37rem; display:flex; flex-direction:column; gap:0.75rem; text-align:left; }
+.cform .row { display:grid; gap:0.75rem; grid-template-columns:1fr; }
+@media (min-width:640px){ .cform .row{ grid-template-columns:1fr 1fr; } }
+.field { width:100%; min-width:0; height:3.5rem; padding:0 1.25rem; border-radius:9999px; border:1px solid var(--glass-border); background:var(--glass-fill); color:var(--heading); font-size:1rem; outline:none; }
+select.field { appearance:none; -webkit-appearance:none; cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23b9becf' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1.25rem center; }
+select.field option { color:#2f2f33; }
+.field::placeholder { color:var(--body-muted); opacity:1; }
+.field:focus-visible { border-color:rgba(255,255,255,0.5); box-shadow:0 0 0 2px rgba(255,255,255,.25); }
+.cform .pill { height:3.5rem; font-size:1rem; margin-top:0.5rem; }
+.note { min-height:1.4rem; font-size:0.9rem; color:var(--body-muted); text-align:center; }
+
+.sitefoot { padding:2.5rem 1.25rem; border-top:1px solid rgba(255,255,255,0.06); background:var(--hero-base); }
+@media (min-width:640px){ .sitefoot{ padding:3rem 2.5rem; } }
+.sitefoot .wrap { display:flex; flex-wrap:wrap; gap:1.5rem 3rem; justify-content:space-between; align-items:center; }
+.sitefoot nav { display:flex; flex-wrap:wrap; gap:0.75rem 1.75rem; }
+.sitefoot nav a { font-size:0.9rem; color:var(--body-muted); transition:color var(--duration-fast) var(--ease-entrance); }
+.sitefoot nav a:hover { color:var(--heading); }
+.sitefoot small { font-size:0.8rem; color:var(--body-muted); }
+@media (prefers-reduced-motion:reduce){ .sr{ opacity:1; transform:none; transition:none; } .loop .ring{ animation:none; } }
+
 .foot { position:absolute; inset-inline:0; bottom:0; z-index:20; display:flex; justify-content:center; padding:1.25rem; font-size:0.72rem; color:var(--body-muted); }
 @media (min-width:640px){ .foot{ padding:1.5rem 2.5rem; font-size:0.8rem; } }
 </style>
 </head>
 <body>
-<section class="hero">
+<section class="hero" id="top">
   <canvas class="fluid" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
 
@@ -100,7 +188,7 @@ form { width:37rem; max-width:100%; }
     </a>
     <nav class="links" aria-label="Primary">
       <a href="#services">Services</a>
-      <a href="#work">Work</a>
+      <a href="#work">Results</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -123,6 +211,144 @@ form { width:37rem; max-width:100%; }
 
   <footer class="foot rv" data-delay="1650">© 2026 Creative Kettle — growth that outlasts the trend.</footer>
 </section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <p class="eyebrow sr">What we do</p>
+    <h2 class="sr" style="--d:80ms">Four channels. One engine.</h2>
+    <p class="lede sr" style="--d:140ms">Most agencies sell channels in silos. We run paid ads, video, organic growth and GEO/SEO as a single system, so each one makes the others cheaper and faster.</p>
+    <div class="cards">
+      <article class="card glass sr">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg></div>
+        <h3>Paid Ads</h3>
+        <p>Search, Meta, YouTube and LinkedIn campaigns built around payback, not clicks. We test creative weekly and cut what does not earn its spend.</p>
+        <div class="tags"><span>Google Ads</span><span>Meta</span><span>YouTube</span><span>LinkedIn</span></div>
+      </article>
+      <article class="card glass sr" style="--d:80ms">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></div>
+        <h3>Video</h3>
+        <p>Brand films, product explainers and short-form cuts, shot once and reused across ads, social and your site so every frame keeps working.</p>
+        <div class="tags"><span>Brand films</span><span>Short-form</span><span>Ad creative</span><span>Motion</span></div>
+      </article>
+      <article class="card glass sr" style="--d:160ms">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21V9"/><path d="M12 13c-4 0-6-2-6-6 4 0 6 2 6 6z"/><path d="M12 15c4 0 6-2 6-6-4 0-6 2-6 6z"/></svg></div>
+        <h3>Organic Growth</h3>
+        <p>Content, social and community that earn attention you do not pay for. A steady editorial rhythm that builds audience and trust month over month.</p>
+        <div class="tags"><span>Content</span><span>Social</span><span>Email</span><span>Community</span></div>
+      </article>
+      <article class="card glass sr" style="--d:240ms">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/><path d="M11 8v6M8 11h6"/></svg></div>
+        <h3>GEO / SEO</h3>
+        <p>Technical SEO and generative engine optimization, so you rank in Google and get cited in ChatGPT, Perplexity and AI Overviews.</p>
+        <div class="tags"><span>Technical SEO</span><span>Content strategy</span><span>AI citations</span><span>Schema</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="engine">
+  <div class="wrap">
+    <p class="eyebrow sr">Why it lasts</p>
+    <h2 class="sr" style="--d:80ms">A loop that gets stronger every month.</h2>
+    <div class="loop">
+      <svg class="sr" viewBox="0 0 400 400" role="img" aria-label="Growth loop: Paid Ads feed Video, Video feeds Organic Growth, Organic Growth feeds GEO and SEO, which feeds Paid Ads again">
+        <circle class="ring" cx="200" cy="200" r="130"/>
+        <g>
+          <rect class="node" x="140" y="42" width="120" height="44" rx="22"/><text x="200" y="64">Paid Ads</text>
+          <rect class="node" x="290" y="178" width="100" height="44" rx="22"/><text x="340" y="200">Video</text>
+          <rect class="node" x="120" y="314" width="160" height="44" rx="22"/><text x="200" y="336">Organic Growth</text>
+          <rect class="node" x="10" y="178" width="100" height="44" rx="22"/><text x="60" y="200">GEO / SEO</text>
+        </g>
+        <text class="core" x="200" y="194">Compounding</text>
+        <text class="core" x="200" y="214">growth</text>
+      </svg>
+      <ol class="steps">
+        <li class="sr"><b>1</b><div><h3>Paid ads buy the learning</h3><p>Fast traffic shows which offers, audiences and messages convert, in weeks instead of quarters.</p></div></li>
+        <li class="sr" style="--d:80ms"><b>2</b><div><h3>Video turns it into creative</h3><p>Winning angles become films and cutdowns that lift ad performance and carry your story everywhere.</p></div></li>
+        <li class="sr" style="--d:160ms"><b>3</b><div><h3>Organic multiplies the reach</h3><p>The same ideas feed content and social, building an audience you own and do not rent.</p></div></li>
+        <li class="sr" style="--d:240ms"><b>4</b><div><h3>GEO / SEO captures the demand</h3><p>Search and AI answers send compounding, low-cost traffic back, and that lowers what you pay for ads.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <p class="eyebrow sr">How we measure</p>
+    <h2 class="sr" style="--d:80ms">Proof, not promises.</h2>
+    <p class="lede sr" style="--d:140ms">Every engagement is tracked against four numbers agreed in week one and reported monthly in plain language.</p>
+    <div class="metrics">
+      <div class="metric glass sr"><span class="k">Efficiency</span><h3>CAC payback</h3><p>How many months until a new customer has paid back what it cost to win them.</p></div>
+      <div class="metric glass sr" style="--d:80ms"><span class="k">Compounding</span><h3>Organic share of pipeline</h3><p>The portion of leads and revenue that no longer depends on ad spend.</p></div>
+      <div class="metric glass sr" style="--d:160ms"><span class="k">Demand</span><h3>Branded search growth</h3><p>More people looking for you by name is the clearest sign the engine is working.</p></div>
+      <div class="metric glass sr" style="--d:240ms"><span class="k">AI visibility</span><h3>Citation share</h3><p>How often ChatGPT, Perplexity and AI Overviews name you against your competitors.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <p class="eyebrow sr">Process</p>
+    <h2 class="sr" style="--d:80ms">From audit to compounding in four stages.</h2>
+    <div class="proc">
+      <div class="card glass sr"><span class="wk">Weeks 1–2</span><h3>Audit</h3><p>We review your funnel, ad accounts, content and technical SEO, and set the four numbers we will be judged on.</p></div>
+      <div class="card glass sr" style="--d:80ms"><span class="wk">Weeks 3–6</span><h3>Build</h3><p>Tracking, landing pages, first creative and the content roadmap, all built so each piece feeds the next.</p></div>
+      <div class="card glass sr" style="--d:160ms"><span class="wk">Month 2 onward</span><h3>Launch</h3><p>Paid, video and organic go live together. Weekly tests, monthly reporting and one point of contact.</p></div>
+      <div class="card glass sr" style="--d:240ms"><span class="wk">Month 4 onward</span><h3>Compound</h3><p>We shift budget toward what has proven itself and let organic and search carry more of the load.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <p class="eyebrow sr">Questions</p>
+    <h2 class="sr" style="--d:80ms">Before you ask.</h2>
+    <div class="faq">
+      <details class="glass sr"><summary>Do I have to buy all four services?</summary><p>No. Many clients start with one or two. The engine works best with all four, and we will show you where the biggest gap is before you commit.</p></details>
+      <details class="glass sr" style="--d:60ms"><summary>How soon will we see results?</summary><p>Paid ads can show signal in the first month. Organic and SEO usually take three to six months to build, which is why we run them next to paid from the start.</p></details>
+      <details class="glass sr" style="--d:120ms"><summary>What is GEO, and do I need it?</summary><p>Generative engine optimization makes your content easy for AI assistants to find, trust and cite. If your buyers ask ChatGPT or Perplexity for recommendations, yes.</p></details>
+      <details class="glass sr" style="--d:180ms"><summary>Who owns the ad accounts and content?</summary><p>You do. Accounts sit under your business, and all creative, footage and content are yours to keep if we part ways.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow sr">Start here</p>
+    <h2 class="sr" style="--d:80ms">Let us build your growth engine.</h2>
+    <p class="lede sr" style="--d:140ms">Tell us where you are today. We will reply within one business day with a short audit plan.</p>
+    <form class="cform sr" id="contact-form" style="--d:200ms">
+      <div class="row">
+        <input class="field" id="cf-name" name="name" type="text" required placeholder="Your name" autocomplete="name" aria-label="Your name">
+        <input class="field" id="cf-email" name="email" type="email" required placeholder="Work email" autocomplete="email" aria-label="Work email">
+      </div>
+      <select class="field" id="cf-need" name="need" aria-label="What do you need most?">
+        <option value="">What do you need most?</option>
+        <option>Paid ads</option>
+        <option>Video</option>
+        <option>Organic growth</option>
+        <option>GEO / SEO</option>
+        <option>The whole engine</option>
+      </select>
+      <button class="pill" type="submit">Book a Call</button>
+      <p class="note" id="cf-note" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <a class="brand" href="#top" style="font-size:1.15rem">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:1.35rem;height:1.35rem">
+        <path d="M2.5 9c2.5 0 2.5 4.2 5 4.2S10 9 12 9s2.5 4.2 5 4.2S19.5 9 21.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M2.5 15c2.5 0 2.5 4.2 5 4.2S10 15 12 15s2.5 4.2 5 4.2S19.5 15 21.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+      <span>Creative Kettle</span>
+    </a>
+    <nav aria-label="Footer"><a href="#services">Services</a><a href="#work">Measurement</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+    <small>© 2026 Creative Kettle. All rights reserved.</small>
+  </div>
+</footer>
 
 <script>
 /* ---------- Reveals ---------- */
@@ -152,13 +378,32 @@ form { width:37rem; max-width:100%; }
     }));
   }
   if (document.fonts && document.fonts.ready) Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 800))]).then(go); else go();
-  document.getElementById("lead").addEventListener("submit", e => e.preventDefault());
+  document.getElementById("lead").addEventListener("submit", e => { e.preventDefault(); location.hash = "contact"; });
+
+  /* scroll reveals for the sections below the hero */
+  const sr = document.querySelectorAll(".sr");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    sr.forEach(el => io.observe(el));
+  } else sr.forEach(el => el.classList.add("in"));
+
+  /* pause the fluid while the hero is off screen */
+  const hero = document.querySelector(".hero");
+  if (hero && "IntersectionObserver" in window)
+    new IntersectionObserver(es => { window.__fluidPaused = !es[0].isIntersecting; }).observe(hero);
+
+  /* contact form: no backend wired yet. Replace the body of this handler with a fetch() to your CRM or form endpoint. */
+  document.getElementById("contact-form").addEventListener("submit", e => {
+    e.preventDefault();
+    document.getElementById("cf-note").textContent = "Thanks. We will be in touch within one business day.";
+    e.target.reset();
+  });
 })();
 </script>
 
 <script type="module">
 import Lenis from "lenis";
-const lenis = new Lenis({ smoothWheel: true });
+const lenis = new Lenis({ smoothWheel: true, anchors: true });
 function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
 </script>
@@ -936,6 +1181,7 @@ function fluidSimulation(canvas) {
 
     function update() {
         if (destroyed) return;
+        if (window.__fluidPaused) { rafHandle = requestAnimationFrame(update); return; }
         resizeCanvas();
         driveVirtualPointer();
         input();
